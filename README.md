@@ -33,9 +33,8 @@ I assume that we would be using Jenkins for the code pipeline and the code would
 ## Code Pipeline
 For this solution, I would be using Jenkins for the code pipeline and the code would reside in Github.
 
-<<<
-< Code Pipeline image >
->>>
+[Code Pipeline image](DeploymentPipeline.png)
+
 
 Once the developer commits and pushes the code in Github, Jenkin server will initiate a build process (Kubernetes based build that generates Docker Image) and push the Docker image into Elastic Container Registry (Amazon ECR). Then deploy the application image in Elastic Kubernetes Service (Amazon EKS) cluster.
 
@@ -44,9 +43,7 @@ Once the developer commits and pushes the code in Github, Jenkin server will ini
 Amazon Elastic Container Service for Kubernetes provides an orchestration platform for building and deploying cloud applications using Kubernetes. Amazon EKS is an AWS fully managed Kubernetes offering.
 Since Kubernetes is cloud agnostics, deploying this solution in other cloud is also easy.
 
-<<<
-< AWS architecture image >
->>>
+[AWS architecture image](K8sDeploymentArchitecture.png)
 
 
 ### Data Storage
