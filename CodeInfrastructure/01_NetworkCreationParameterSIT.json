@@ -1,0 +1,58 @@
+[
+	{
+	  "ParameterKey" : "VPCCIDR" ,
+	  "ParameterValue" : "10.0.0.0/16"
+	},
+	{
+	  "ParameterKey" : "AvailabilityZones" ,
+	  "ParameterValue" : "us-east-1a,us-east-1b,us-east-1c"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet1ACIDR" ,
+	  "ParameterValue" : "10.0.0.0/19"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet1AName" ,
+	  "ParameterValue" : "Private subnet 1A"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet2ACIDR" ,
+	  "ParameterValue" : "10.0.32.0/19"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet2AName" ,
+	  "ParameterValue" : "Private subnet 2A"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet3ACIDR" ,
+	  "ParameterValue" : "10.0.64.0/19"
+	},
+	{
+	  "ParameterKey" : "PrivateSubnet3AName" ,
+	  "ParameterValue" : "Private subnet 3A"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet1ACIDR" ,
+	  "ParameterValue" : "10.0.128.0/20"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet1AName" ,
+	  "ParameterValue" : "Public subnet 1A"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet2ACIDR" ,
+	  "ParameterValue" : "10.0.144.0/20"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet2AName" ,
+	  "ParameterValue" : "Public subnet 2A"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet3ACIDR" ,
+	  "ParameterValue" : "10.0.160.0/20"
+	},
+	{
+	  "ParameterKey" : "PublicSubnet3AName" ,
+	  "ParameterValue" : "Public subnet 3A"
+	}
+]
