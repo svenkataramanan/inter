@@ -1,5 +1,3 @@
-# inter
-
 # Problem statement
 
 A development team has created a Java web app that is ready for a limited release (with reduced availability and reliability requirements). If the limited release is successful, the app will be rolled out for worldwide use. Once fully public, the application needs to be available 24/7 and must provide sub-second response times and continuity through single-server failures - targeting 4-9’s of availability.
