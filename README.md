@@ -1,5 +1,4 @@
 # Problem statement
-
 A development team has created a Java web app that is ready for a limited release (with reduced availability and reliability requirements). If the limited release is successful, the app will be rolled out for worldwide use. Once fully public, the application needs to be available 24/7 and must provide sub-second response times and continuity through single-server failures - targeting 4-9’s of availability.
 
 The application will need to have Https support through self-signed certificates. 
@@ -16,18 +15,14 @@ Design and create two environments - one for UAT/SIT and one for production. You
 
 Design and create the training and production environments, and provide a plan to scale out that deployment when the application goes public.
 
-
 # Solution
-
 For this requirement, I will go with container solution on AWS orchestrated by Kubernetes.
 I assume that we would be using Jenkins for the code pipeline and the code would reside in Github.
 
-
 # Alternate solutions considered
+- AWS Elastic Container Service 
 - AWS CodePipeline using AWS Elastic Beanstalk
 - AWS Fargate
-- AWS Elastic Container Service 
-
 
 # Solution explained
 ## Code Pipeline
@@ -35,16 +30,13 @@ For this solution, I would be using Jenkins for the code pipeline and the code w
 
 ![Code Pipeline image](DeploymentPipeline.png)
 
-
 Once the developer commits and pushes the code in Github, Jenkin server will initiate a build process (Kubernetes based build that generates Docker Image) and push the Docker image into Elastic Container Registry (Amazon ECR). Then deploy the application image in Elastic Kubernetes Service (Amazon EKS) cluster.
 
 ## AWS architecture
-
 Amazon Elastic Container Service for Kubernetes provides an orchestration platform for building and deploying cloud applications using Kubernetes. Amazon EKS is an AWS fully managed Kubernetes offering.
 Since Kubernetes is cloud agnostics, deploying this solution in other cloud is also easy.
 
 ![AWS architecture image](K8sDeploymentArchitecture.png)
-
 
 ### Data Storage
 As the application uses Prevalyer, which uses file system to store persistent data, I recommend the use of EFS. 
@@ -67,8 +59,44 @@ Since the application should provide sub second response time, recommended to us
 Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment. CloudFront works seamlessly with services including AWS Shield for DDoS mitigation, Amazon S3, Elastic Load Balancing or Amazon EC2 as origins for the application. Lastly, on using AWS origins such as Amazon S3, Amazon EC2 or Elastic Load Balancing, no payment require  for any data transferred between these services and CloudFront.
 ```
 
+## Part Implementations
+### Kubernetes
+The steps for Kubernetes implementation is explained in the [Kubernetes](./Kubernetes) section
+
+### IaaS
+Cloud formation for VPC, Subnet and network associations is provided in the [CodeInfrastructure](./CodeInfrastructure) section
+
 # Suggestions
 Its recommend to move to a RDS solution instead of Prevayler because of the following benefits
 - Prevayler uses filesystem. This is not a good cloud design pattern
 - RDS is fully managed
 - RDS can provide read replica
+
+
+# Design principles considered
+This solution has been designed keeping in mind the AWS Well architected Framework.
+
+#### Operational Excellence
+- Provisioned the environment as code (cloud formation scripts for Kubernetes)
+- The changes to the provisioning is via code configuration. Run the plan, validate and execute
+- If monitoring was in scope, then AWS Cloud Watch and Alarm would be implemented for monitoring
+#### Security 
+- Created IAM user, groups, roles and policies and provided permission only for the required access
+- The traffic in the internet is via https.
+- All the application containers are in private subnet protected by AWS security group and NACL.
+- AWS WAF is also considered 
+- As logging is out of scope did not implement tractability
+#### Reliability
+- Using AWS managed services makes sure the services runs fine
+- Designed the solution for multi availability zone
+- Implemented auto scaling to increased workloads
+- Infrastructure as a code helps in creating a reliable environment every time
+#### Performance Efficiency
+- Provided a container based approach with Kubernetes orchestration managed by AWS
+- Using a CDN to deliver content fast to the user
+- Auto scaling enables to increase capacity only when needed and scale down happens when right
+#### Cost Optimization
+- Solution uses AWS managed services to reduce cost of ownership
+- Provision compute capacity based on the need of the hour 
+- CND would increase the cost but a conscious decision to meet the business need for speed
+- EFS is considered but lifecycle policy can be implemented to reduce cost
