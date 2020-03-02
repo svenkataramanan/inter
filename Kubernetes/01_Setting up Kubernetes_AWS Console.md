@@ -46,12 +46,12 @@ Create a user _EKS-TW-Admin_ and assign the policies. The last 2 policies listed
   - EKS-Admin-policy  
 
 ### Create IAM role
-Create an IAM role _EKS-TW-role_ which has _EKS_ permission.
+Create an IAM role _EKS-TW-Role_ which has _EKS_ permission.
 - Choose _Roles_ --> _Create role_  
 - Choose _EKS_ service followed by _Allows EKS to manage clusters on your behalf_  
 - Choose _Next: Permissions_
 - Click _Next: Review_
-- Enter a *unique* Role name, _EKS-TW-role_ and click *_Create Role_*
+- Enter a *unique* Role name, _EKS-TW-Role_ and click *_Create Role_*
 
 ### Create API Access key
 For the user _EKS-TW-Admin_  create the Access Key and Secret key
