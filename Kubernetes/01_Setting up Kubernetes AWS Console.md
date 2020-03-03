@@ -43,24 +43,26 @@ Create a user _EKS-TW-Admin_ and assign the policies. The last 2 policies listed
   - IAMFullAccess
   - AmazonVPCFullAccess
   - CloudFormation-Admin-policy
-  - EKS-Admin-policy  
+  - EKS-Admin-policy
 
 ### Create IAM role
-Create an IAM role _EKS-TW-Role_ which has _EKS_ permission.
-- Choose _Roles_ --> _Create role_  
-- Choose _EKS_ service followed by _Allows EKS to manage clusters on your behalf_  
+Create an IAM role _EKS-TW-Role_ which has _EKS_ permission
+- Choose _Roles_ --> _Create role_
+- Choose _EKS_ service followed by _Allows EKS to manage clusters on your behalf_
 - Choose _Next: Permissions_
 - Click _Next: Review_
 - Enter a *unique* Role name, _EKS-TW-Role_ and click *_Create Role_*
 
 ### Create API Access key
-For the user _EKS-TW-Admin_  create the Access Key and Secret key
-- Choose _Users_ --> _EKS-TW-Admin_ 
+For the user _EKS-TW-Admin_ create the Access Key and Secret key
+- Choose _Users_ --> _EKS-TW-Admin_
 - Choose _Security credentials_ tab and click *_Create access key_*
+
 Download the key file and save it securely as it is used latter
 
 ### Create Key Pair
 Create a new Key Pair which can be used when the instances gets created. To create, go to the AWS console ```https://console.aws.amazon.com/ec2/```
 - Choose _Key Pairs_ and click *_Create key pair_*  
 - Provide a name for the keypair _EKS-TW-KeyPair_ and click *_Create key pair_*
-The key pair file (_EKS-TW-KeyPair.pem_) would automatically download. Save this file for latter use.
+
+The key pair file (_EKS-TW-KeyPair.pem_) would automatically download. Save this file for latter use
