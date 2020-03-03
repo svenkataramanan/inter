@@ -2,7 +2,7 @@
 This section talks about the setup of Kubernetes from the Command Line once the AWS Console section is completed
 
 ## Set up for AWS communication
-The AWS Command Line Interface (CLI) is a unified tool to manage the AWS services.
+The AWS Command Line Interface (CLI) is a unified tool to manage the AWS services
 
 ### Install awscli
 To install awscli use the pip3 command. Install in the _--user_ home directory
@@ -32,7 +32,7 @@ eksctl is a simple CLI tool for creating clusters on EKS
 ### Installation
 Download the eksctl from github
 ```
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp  
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 
 sudo mv /tmp/eksctl /usr/local/bin
 ```
@@ -49,7 +49,7 @@ Kubectl is a command line tool for controlling Kubernetes clusters
 
 ### Installation
 Kubectl is located in https location. To download from https location, install the _apt-transport-https_. Once downloaded, install kubectl
-``` 
+```
 sudo apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
